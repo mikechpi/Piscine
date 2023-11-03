@@ -231,7 +231,15 @@ app.post('/s2/exercice3', (req, res) => {
 });
 
 app.post('/s2/exercice4', (req, res) => {
-    return res.json([{ reponse: 0 }]);
+    const { date, jours } = req.body;
+    const dateObj = new Date(date);
+
+    if (isNaN(dateObj)) {
+        return res.status(400).json({ reponse: "Date invalide" });
+    }
+
+    const dateResultat = ajouterJours(dateObj, jours);
+    return res.json({ reponse: dateResultat });
 });
 
 app.post('/s2/exercice5', (req, res) => {
