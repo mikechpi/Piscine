@@ -188,58 +188,25 @@ app.post('/s1/exercice10', (req, res) => {
     if (n2 == null) {
         return res.json([{ reponse: "Veuillez entrer un nombre valide" }]);
     }
-
+    
     let a = pgcd(n1, n2)
     return res.json([{ reponse: a }]);
 });
 
 app.post('/s2/exercice1', (req, res) => {
-
-    const datePassee = dateIlYADixAns();
-
-    return res.json([{ reponse: datePassee }]);
+    return res.json([{ reponse: 0 }]);
 });
 
 app.post('/s2/exercice2', (req, res) => {
-
-    const { date } = req.body;
-
-    if (typeof date !== 'string') {
-        return res.json({ reponse: "Date invalide" });
-    }
-
-    const dateObj = new Date(date);
-
-    if (isNaN(dateObj.getTime())) {
-        return res.json({ reponse: "Date invalide" });
-    }
-
-    const jour = String(dateObj.getDate()).padStart(2, '0');
-    const mois = String(dateObj.getMonth() + 1).padStart(2, '0');
-    const annee = dateObj.getFullYear();
-    const dateFormatee = `${jour}/${mois}/${annee}`;
-
-    return res.json({ reponse: dateFormatee });
+    return res.json([{ reponse: 0 }]);
 });
 
 app.post('/s2/exercice3', (req, res) => {
-    const n1 = new Date(req.body.date1);
-    const n2 = new Date(req.body.date2);
-
-    const Enjours = differenceEnJours(n1, n2);
-    return res.json([{ reponse: Enjours }]);
+    return res.json([{ reponse: 0 }]);
 });
 
 app.post('/s2/exercice4', (req, res) => {
-    const { date, jours } = req.body;
-    const dateObj = new Date(date);
-
-    if (isNaN(dateObj)) {
-        return res.status(400).json({ reponse: "Date invalide" });
-    }
-
-    const dateResultat = ajouterJours(dateObj, jours);
-    return res.json({ reponse: dateResultat });
+    return res.json([{ reponse: 0 }]);
 });
 
 app.post('/s2/exercice5', (req, res) => {
